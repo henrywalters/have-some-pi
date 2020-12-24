@@ -48,6 +48,8 @@ public:
             printf("Failedf to find address. run i2cdetect -y l");
         }
 
+        printf("Setting up pcf8574");
+
         pcf8574Setup(BASE, _address);
 
         printf("Setup pcf8574");
