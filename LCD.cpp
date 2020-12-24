@@ -5,6 +5,7 @@
 #include <lcd.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string>
 
 int pcf8754_address =0x27;
 #define BASE 64
@@ -75,8 +76,8 @@ public:
         lcdPosition(_lcd, x, y);
     }
 
-    void print(char* str) {
-        lcdPrintf(_lcd, str);
+    void print(std::string str) {
+        lcdPrintf(_lcd, str.c_str());
     }
 
 };
