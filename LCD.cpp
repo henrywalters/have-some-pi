@@ -50,13 +50,16 @@ public:
 
         pcf8574Setup(BASE, _address);
 
+        printf("Setup pcf8574");
         
         digitalWrite(LED, HIGH);
         digitalWrite(RW, LOW);
         _lcd = lcdInit(2, 16, 4, RS, EN, D4, D5, D6, D7, 0, 0, 0, 0);
-    
+
         if (_lcd == -1) {
             printf("Failed to initialize lcd");
+        } else {
+            printf("LCD Initialized");
         }
 
     }
