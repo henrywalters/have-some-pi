@@ -41,8 +41,9 @@ class LCD {
 
 public:
     LCD() {
+        printf("Detecting address\n");
         if (detectI2C(0x27)) {
-            printf("Setting address variable");
+            printf("Setting address variable\n");
             _address = 0x27;
         } else if (detectI2C(0x3F)) {
             _address = 0x3F;
@@ -50,11 +51,11 @@ public:
             printf("Failedf to find address. run i2cdetect -y l");
         }
 
-        printf("Setting up pcf8574");
+        printf("Setting up pcf8574\n");
 
         pcf8574Setup(BASE, _address);
 
-        printf("Setup pcf8574");
+        printf("Setup pcf8574\n");
         
         digitalWrite(LED, HIGH);
         digitalWrite(RW, LOW);
