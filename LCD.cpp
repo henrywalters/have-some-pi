@@ -113,12 +113,12 @@ int main(void) {
     LCD lcd;
 
     while (1) {
-        char* temp = printCpuTemp();
-        char* time = printDateTime();
+        // char* temp = printCpuTemp();
+        // char* time = printDateTime();
         lcd.setCursorPos(0, 0);
-        lcd.print(temp);
+        lcd.print("Hey Babe");
         lcd.setCursorPos(0, 1);
-        lcd.print(time);
+        lcd.print("I Love you <3");
         delay(1000);
     }
 
