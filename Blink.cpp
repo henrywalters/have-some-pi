@@ -5,18 +5,18 @@
 
 int fibb(int n) {
     if (n == 1) {
-        return 1
+        return 1;
     } else if (n == 2) {
-        return 1
+        return 1;
     } else {
-        return fibb[n - 1] + fibb[n - 2];
+        return fibb(n - 1) + fibb(n - 2);
     }
 }
 
 int main(void) {
     printf("Starting program... \n");
 
-    int fibbs[20] = {}
+    int fibbs[20] = {};
 
     for (int i = 1; i < 20; i++) {
         fibbs[i - 1] = fibb(i);
