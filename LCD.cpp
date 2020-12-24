@@ -19,8 +19,8 @@ int pcf8754_address =0x27;
 #define D7 BASE + 7
 
 class LCD {
-    int _lcd;
-    int _address;
+    int _lcd = 0;
+    int _address = 0;
 
     int detectI2C(int addr) {
         int fd = wiringPiI2CSetup(addr);
