@@ -48,7 +48,7 @@ public:
             printf("Failedf to find address. run i2cdetect -y l");
         }
 
-        pcf8574Setup(BASE, pcf8754_address);
+        pcf8574Setup(BASE, _address);
 
         digitalWrite(LED, HIGH);
         digitalWrite(RW, LOW);
