@@ -47,6 +47,8 @@ int main(void) {
 
     pcf8574Setup(BASE, pcf8754_address);
 
+    digitalWrite(LED, HIGH);
+    digitalWrite(RW, LOW);
     lcdhd = lcdInit(2, 16, 4, RS, EN, D4, D5, D6, D7, 0, 0, 0, 0);
 
     lcdPrintf(lcdhd, "Hello World!");
