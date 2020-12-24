@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <lcd.h>
 #include <time.h>
+#include <stdlib.h>
 
 int pcf8754_address =0x27;
 #define BASE 64
@@ -35,6 +36,20 @@ int detectI2C(int addr) {
     }
 }
 
+void printCpuTemp() {
+    FILE *fp;
+    char str_temp[15];
+    float temp;
+
+    fp = fopen("/sys/class/thermal/thermal_zone0/temp", 'r');
+    fgets(str_temp, 15, fp);
+    temp = atof(str_temp) / 1000.0;
+
+    lcdPosition(lcdhd, 0, 0);
+    lcdPrintf(lcdhd, "CPU: %.2fC", temp);
+    fclose(fp);
+}
+
 void printDateTime() {
     time_t raw;
     struct tm* timeinfo;
@@ -64,6 +79,7 @@ int main(void) {
     lcdhd = lcdInit(2, 16, 4, RS, EN, D4, D5, D6, D7, 0, 0, 0, 0);
 
     while (1) {
+        printCpuTemp();
         printDateTime();
         delay(1000);
     }
