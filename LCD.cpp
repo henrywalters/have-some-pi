@@ -41,7 +41,7 @@ void printCpuTemp() {
     char str_temp[15];
     float temp;
 
-    fp = fopen("/sys/class/thermal/thermal_zone0/temp", 'r');
+    fp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
     fgets(str_temp, 15, fp);
     temp = atof(str_temp) / 1000.0;
 
