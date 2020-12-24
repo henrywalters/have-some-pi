@@ -41,6 +41,7 @@ class LCD {
 public:
     LCD() {
         if (detectI2C(0x27)) {
+            printf("Setting address variable");
             _address = 0x27;
         } else if (detectI2C(0x3F)) {
             _address = 0x3F;
