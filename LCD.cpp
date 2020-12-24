@@ -24,7 +24,7 @@ int detectI2C(int addr) {
         printf("ERROR ADDRESS :0x%x \n", addr);
         return 0;
     } else {
-        if (wiringPiI2CWrite(addr, 0) < 0) {
+        if (wiringPiI2CWrite(fd, 0) < 0) {
             printf("Not found device at address 0x%x \n", addr);
             return 0;
         } else {
