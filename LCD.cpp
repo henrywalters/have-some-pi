@@ -3,6 +3,7 @@
 #include <pcf8574.h>
 #include <stdio.h>
 #include <lcd.h>
+#include <time.h>
 
 int pcf8754_address =0x27;
 #define BASE 64
@@ -34,6 +35,17 @@ int detectI2C(int addr) {
     }
 }
 
+void printDateTime() {
+    time_t raw;
+    struct tm* timeinfo;
+    time(&raw);
+    timeinfo = localtime(&raw);
+    printf("%s \n", asctime(timeinfo));
+    lcdPosition(lcdhd, 0, 1);
+
+    lcdPrintf(lcdhd, "Time: %02d:%02d:%02d", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
+}
+
 int main(void) {
     wiringPiSetup();
 
@@ -51,7 +63,10 @@ int main(void) {
     digitalWrite(RW, LOW);
     lcdhd = lcdInit(2, 16, 4, RS, EN, D4, D5, D6, D7, 0, 0, 0, 0);
 
-    lcdPrintf(lcdhd, "Hello World!");
+    while (1) {
+        printDateTime();
+        delay(1000);
+    }
 
     return 1;
 }
