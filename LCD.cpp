@@ -64,9 +64,9 @@ public:
         _lcd = lcdInit(2, 16, 4, RS, EN, D4, D5, D6, D7, 0, 0, 0, 0);
         printf("Init lcd\n");
         if (_lcd == -1) {
-            printf("Failed to initialize lcd");
+            printf("Failed to initialize lcd\n");
         } else {
-            printf("LCD Initialized");
+            printf("LCD Initialized\n");
         }
 
     }
