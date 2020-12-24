@@ -33,6 +33,7 @@ class LCD {
                 return 0;
             } else {
                 printf("Found device at 0x%x \n", addr);
+                printf("UM?");
                 return 1;
             }
         }
