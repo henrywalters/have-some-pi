@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
         if (script >= 0 && script < scriptCount) {
             std::cout << "Running " << scripts[script]->getName() << std::endl;
-            scripts[i]->run();
+            scripts[script]->run();
         } else if (script == scriptCount) {
             running = false;
         } else {
