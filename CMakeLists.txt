@@ -11,6 +11,7 @@ add_executable(have_some_pi main.cpp)
 
 target_link_libraries(
     have_some_pi 
-    wiringPi 
+    wiringPi
+    wiringPiDev
     pthread
 )
