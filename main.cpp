@@ -5,10 +5,12 @@
 #include "./Source/Components/LCD1602.hpp"
 #include "./Source/Scripts/Test.hpp"
 #include "./Source/Scripts/Blink.hpp"
+#include "./Source/Scripts/BreathingLED.hpp"
 
 const std::vector<BaseScript*> scripts = {
     new TestScript(),
     new BlinkScript(),
+    new BreathingLED(),
 };
 
 int main(int argc, char *argv[]) {
@@ -17,11 +19,6 @@ int main(int argc, char *argv[]) {
     bool running = true;
     int script = 0;
     int scriptCount = scripts.size();
-
-    LCD1602 lcd;
-
-    lcd.setCursorPos(0, 0);
-    lcd.print("Select a script");
 
     while (running) {
 
