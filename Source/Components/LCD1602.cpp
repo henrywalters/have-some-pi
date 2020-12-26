@@ -19,7 +19,7 @@ int pcf8754_address =0x27;
 #define D6 BASE + 6
 #define D7 BASE + 7
 
-class LCD {
+class LCD1602 {
     int _lcd = 0;
     int _address = 0x27;
 
@@ -41,7 +41,7 @@ class LCD {
     }
 
 public:
-    LCD() {
+    LCD1602() {
         printf("Detecting address\n");
         if (detectI2C(0x27)) {
             printf("Setting address variable\n");
@@ -81,47 +81,3 @@ public:
     }
 
 };
-
-char* printCpuTemp() {
-    FILE *fp;
-    char* out;
-    char str_temp[15];
-    float temp;
-
-    fp = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
-    fgets(str_temp, 15, fp);
-    temp = atof(str_temp) / 1000.0;
-    fclose(fp);
-
-    sprintf(out, "CPU: %.2fC", temp);
-
-    return out;
-}
-
-char* printDateTime() {
-    time_t raw;
-    char* out;
-    struct tm* timeinfo;
-    time(&raw);
-    timeinfo = localtime(&raw);
-    sprintf(out, "Time: %02d:%02d:%02d", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
-    return out;
-}
-
-int main(void) {
-    wiringPiSetup();
-
-    LCD lcd;
-
-    while (1) {
-        // char* temp = printCpuTemp();
-        // char* time = printDateTime();
-        lcd.setCursorPos(0, 0);
-        lcd.print("Hey Babe");
-        lcd.setCursorPos(0, 1);
-        lcd.print("I Love you <3");
-        delay(1000);
-    }
-
-    return 1;
-}
