@@ -2,11 +2,13 @@
 #include <string>
 #include <vector>
 #include "./Source/BaseScript.hpp"
+// #include "./Source/Components/LCD1602.hpp"
 #include "./Source/Scripts/Test.hpp"
-#include "./Source/Components/LCD1602.cpp"
+#include "./Source/Scripts/Blink.hpp"
 
 const std::vector<BaseScript*> scripts = {
     new TestScript(),
+    new BlinkScript(),
 };
 
 int main(int argc, char *argv[]) {
@@ -29,8 +31,6 @@ int main(int argc, char *argv[]) {
             std::cin >> script;
 
             script -= 1;
-
-            std::cout << "Script = " << script << "\n";
 
             if (script >= 0 && script < scripts.size()) {
                 std::cout << "Running " << scripts[i]->getName() << std::endl;

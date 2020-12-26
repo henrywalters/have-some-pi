@@ -1,3 +1,0 @@
-/home/henry/have-some-pi/CMakeFiles/rebuild_cache.dir
-/home/henry/have-some-pi/CMakeFiles/edit_cache.dir
-/home/henry/have-some-pi/CMakeFiles/have_some_pi.dir

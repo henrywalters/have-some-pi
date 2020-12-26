@@ -1,3 +1,6 @@
+#ifndef LCD1602
+#define LCD1602
+
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 #include <pcf8574.h>
@@ -81,3 +84,6 @@ public:
     }
 
 };
+
+
+#endif
