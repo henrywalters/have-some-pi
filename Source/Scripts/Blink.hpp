@@ -24,6 +24,7 @@ public:
         delay(1000);
         _led->off();
         delay(1000);
+        _running = false;
     }
 };
 

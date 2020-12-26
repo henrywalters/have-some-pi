@@ -19,12 +19,14 @@ int main(int argc, char *argv[]) {
     int scriptCount = scripts.size();
 
     while (running) {
+
+        std::cout << "Select a script to run" << std::endl;
+
         for (int i = 0; i < scriptCount; i++) {
-
-            std::cout << "Select a script to run" << std::endl;
-
             std::cout << (i + 1) << ") " << scripts[i]->getName() << std::endl;
-            std::cout << (scriptCount + 1) << ") Quit" << std::endl;
+        }
+
+        std::cout << (scriptCount + 1) << ") Quit" << std::endl;
 
             std::cout << std::endl;
 
@@ -40,7 +42,6 @@ int main(int argc, char *argv[]) {
             } else {
                 std::cout << "Invalid input provided" << std::endl;
             }
-        }
     }
 
     return 1;
