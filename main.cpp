@@ -28,20 +28,20 @@ int main(int argc, char *argv[]) {
 
         std::cout << (scriptCount + 1) << ") Quit" << std::endl;
 
-            std::cout << std::endl;
+        std::cout << std::endl;
 
-            std::cin >> script;
+        std::cin >> script;
 
-            script -= 1;
+        script -= 1;
 
-            if (script >= 0 && script < scripts.size()) {
-                std::cout << "Running " << scripts[i]->getName() << std::endl;
-                scripts[i]->run();
-            } else if (script == scriptCount) {
-                running = false;
-            } else {
-                std::cout << "Invalid input provided" << std::endl;
-            }
+        if (script >= 0 && script < scriptCount) {
+            std::cout << "Running " << scripts[script]->getName() << std::endl;
+            scripts[i]->run();
+        } else if (script == scriptCount) {
+            running = false;
+        } else {
+            std::cout << "Invalid input provided" << std::endl;
+        }
     }
 
     return 1;
