@@ -13,6 +13,4 @@ target_link_libraries(
     have_some_pi 
     wiringPi 
     pthread
-    shm
-    crypt
 )
