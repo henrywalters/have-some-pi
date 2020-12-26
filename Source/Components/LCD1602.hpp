@@ -1,5 +1,5 @@
-#ifndef LCD1602
-#define LCD1602
+#ifndef LCD1602_HPP
+#define LCD1602_HPP
 
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
@@ -10,13 +10,13 @@
 #include <stdlib.h>
 #include <string>
 
-int pcf8754_address =0x27;
+int pcf8754_address = 0x27;
 #define BASE 64
 
 #define RS BASE + 0
 #define RW BASE + 1
 #define EN BASE + 2
-#define LED BASE + 3
+#define LED_PIN BASE + 3
 #define D4 BASE + 4
 #define D5 BASE + 5
 #define D6 BASE + 6
@@ -25,6 +25,7 @@ int pcf8754_address =0x27;
 class LCD1602 {
     int _lcd = 0;
     int _address = 0x27;
+    bool _connected = false;
 
     int detectI2C(int addr) {
         int fd = wiringPiI2CSetup(addr);
@@ -54,23 +55,17 @@ public:
         } else {
             printf("Failedf to find address. run i2cdetect -y l");
         }
-
-        printf("Setting up pcf8574\n");
-
+        
         pcf8574Setup(BASE, _address);
 
-        printf("Setup pcf8574\n");
-        
-        digitalWrite(LED, HIGH);
-        printf("Set backlight\n");
+        digitalWrite(LED_PIN, HIGH);
         digitalWrite(RW, LOW);
-        printf("Set IO\n");
         _lcd = lcdInit(2, 16, 4, RS, EN, D4, D5, D6, D7, 0, 0, 0, 0);
-        printf("Init lcd\n");
+
         if (_lcd == -1) {
             printf("Failed to initialize lcd\n");
         } else {
-            printf("LCD Initialized\n");
+            _connected = true;
         }
 
     }

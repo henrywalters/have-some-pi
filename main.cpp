@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "./Source/BaseScript.hpp"
-// #include "./Source/Components/LCD1602.hpp"
+#include "./Source/Components/LCD1602.hpp"
 #include "./Source/Scripts/Test.hpp"
 #include "./Source/Scripts/Blink.hpp"
 
@@ -17,6 +17,11 @@ int main(int argc, char *argv[]) {
     bool running = true;
     int script = 0;
     int scriptCount = scripts.size();
+
+    LCD1602 lcd;
+
+    lcd.setCursorPos(0, 0);
+    lcd.print("Select a script");
 
     while (running) {
 
