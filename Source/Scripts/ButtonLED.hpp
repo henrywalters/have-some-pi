@@ -18,20 +18,18 @@ public:
         wiringPiSetup();
         btn = new Button(2);
         led = new LED(1);
+        btn->onPress([this]() {
+            led->toggle();
+        });
     }
 
     void OnUpdate() {
-        if (btn->isPressed()) {
-            led->off();
-        } else {
-            led->on();
-        }
+        btn->poll();
     }
 
     void OnDestroy() {
         delete led;
         delete btn;
-        std::cout << "Ending Test Script\n";
     }
 };
 
