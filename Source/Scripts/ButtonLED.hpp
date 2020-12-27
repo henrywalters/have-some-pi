@@ -15,6 +15,7 @@ public:
     }
 
     void OnCreate() {
+        wiringPiSetup();
         btn = new Button(2);
         led = new LED(1);
     }
