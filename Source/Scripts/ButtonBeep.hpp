@@ -22,10 +22,12 @@ public:
 
         btn->onPress([this]() {
             beep->on();
+            std::cout << "Button pressed\n";
         });
 
         btn->onRelease([this]() {
             beep->off();
+            std::cout << "Button released\n";
         });
     }
 
