@@ -26,6 +26,10 @@ public:
         delay(1000);
         _running = false;
     }
+
+    void OnDestroy() {
+        delete _led;
+    }
 };
 
 #endif

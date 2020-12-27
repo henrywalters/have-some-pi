@@ -6,11 +6,13 @@
 #include "./Source/Scripts/Test.hpp"
 #include "./Source/Scripts/Blink.hpp"
 #include "./Source/Scripts/BreathingLED.hpp"
+#include "./Source/Scripts/ButtonLED.hpp"
 
 const std::vector<BaseScript*> scripts = {
     new TestScript(),
     new BlinkScript(),
     new BreathingLED(),
+    new ButtonLED(),
 };
 
 int main(int argc, char *argv[]) {

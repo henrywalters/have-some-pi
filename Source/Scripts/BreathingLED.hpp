@@ -44,6 +44,10 @@ public:
 
         blink++;
     }
+
+    void OnDestroy() {
+        delete _led;
+    }
 };
 
 #endif
