@@ -22,9 +22,9 @@ public:
 
     void OnUpdate() {
         if (btn->isPressed()) {
-            led->on();
-        } else {
             led->off();
+        } else {
+            led->on();
         }
     }
 
