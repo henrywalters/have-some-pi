@@ -7,12 +7,14 @@
 #include "./Source/Scripts/Blink.hpp"
 #include "./Source/Scripts/BreathingLED.hpp"
 #include "./Source/Scripts/ButtonLED.hpp"
+#include "./Source/Scripts/ButtonBeep.hpp"
 
 const std::vector<BaseScript*> scripts = {
     new TestScript(),
     new BlinkScript(),
     new BreathingLED(),
     new ButtonLED(),
+    new ButtonBeep(),
 };
 
 int main(int argc, char *argv[]) {
