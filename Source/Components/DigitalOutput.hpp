@@ -30,6 +30,16 @@ public:
         _on = false;
     }
 
+    bool isOn() {
+        return _on;
+    }
+
+    void toggle() {
+        if (isOn()) 
+            off();
+        else
+            on();
+    }
 };
 
 #endif

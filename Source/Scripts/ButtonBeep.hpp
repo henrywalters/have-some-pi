@@ -10,7 +10,7 @@ class ButtonBeep : public BaseScript {
     DigitalOutput *beep;
 
 public:
-    ButtonBeep() : BaseScript("Button controlled LED") {
+    ButtonBeep() : BaseScript("Button controlled Beeper") {
         btn = NULL;
         beep = NULL;
     }
