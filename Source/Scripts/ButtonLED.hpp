@@ -3,10 +3,11 @@
 #include <iostream>
 #include "./../BaseScript.hpp"
 #include "./../Components/Button.hpp"
+#include "./../Components/DigitalOutput.hpp"
 
 class ButtonLED : public BaseScript {
     Button* btn;
-    LED* led;
+    DigitalOutput* led;
 
 public:
     ButtonLED() : BaseScript("Button controlled LED") {
@@ -17,7 +18,7 @@ public:
     void OnCreate() {
         wiringPiSetup();
         btn = new Button(2);
-        led = new LED(1);
+        led = new DigitalOutput(1);
         btn->onPress([this]() {
             led->toggle();
         });
